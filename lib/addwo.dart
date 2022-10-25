@@ -460,22 +460,6 @@ class _pmchecksheetState extends State<pmchecksheet> {
                       //select
                       selectedItem: selected,
                     ),
-                    // child: DropdownButtonFormField<String>(
-                    //   value: selectedSalution,
-                    //   hint: Text('Salutation'),
-                    //   onChanged: (salutation) =>
-                    //       setState(() => selectedSalution = salutation!),
-                    //   validator: (value) => value == null
-                    //       ? 'Pilih Workorder Number Terlebih Dahulu'
-                    //       : null,
-                    //   items: ['MR', ' MS']
-                    //       .map<DropdownMenuItem<String>>((String value) {
-                    //     return DropdownMenuItem<String>(
-                    //       value: value,
-                    //       child: Text(value),
-                    //     );
-                    //   }).toList(),
-                    // ),
                   ),
                   Divider(),
                   Center(
@@ -483,6 +467,7 @@ class _pmchecksheetState extends State<pmchecksheet> {
                       mode: Mode.BOTTOM_SHEET,
                       // showSelectedItem: true,
                       items: newDepartment,
+                      showSearchBox: true,
                       label: "Select Department Name",
                       // hint: "country in menu mode",
                       onChanged: (value) {
@@ -508,6 +493,7 @@ class _pmchecksheetState extends State<pmchecksheet> {
                       mode: Mode.BOTTOM_SHEET,
                       // showSelectedItem: true,
                       items: username,
+                      showSearchBox: true,
                       label: "Section Head on Duty",
                       // hint: "country in menu mode",
                       onChanged: (value) {

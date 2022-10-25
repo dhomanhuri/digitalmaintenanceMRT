@@ -4,8 +4,10 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mrt/NavDrawer.dart';
+import 'package:mrt/pdftes.dart';
 import 'package:mrt/utils/secure_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:mrt/globals.dart' as globals;
 import 'dart:convert';
 import 'dart:async';
 import 'package:path_provider/path_provider.dart';
@@ -280,6 +282,10 @@ class _manualaccState extends State<manualacc> {
                                 return GestureDetector(
                                   onTap: () {
                                     // _getselected = _getpreventive[index] ;
+                                    globals.manualViews =
+                                        'http://147.139.134.143/mrtjakarta/storage/app/' +
+                                            _foundUsers[index]['file']
+                                                .toString();
                                     String indexnum =
                                         _foundUsers[index]['file'].toString();
                                     print('id = ' + indexnum);
@@ -339,6 +345,37 @@ class _manualaccState extends State<manualacc> {
                                                         ),
                                                         label: Text(
                                                           'Download Attachment',
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                        color:
+                                                            HexColor('#343A40'),
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(10),
+                                                        ),
+                                                      ),
+                                                      FlatButton.icon(
+                                                        onPressed: () {
+                                                          Navigator.of(context).push(
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          pdftes()));
+                                                        },
+                                                        icon: Icon(
+                                                          Icons.view_column,
+                                                          color: HexColor(
+                                                              '#17A2B8'),
+                                                        ),
+                                                        label: Text(
+                                                          'View',
                                                           style: TextStyle(
                                                               fontWeight:
                                                                   FontWeight

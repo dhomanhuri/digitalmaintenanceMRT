@@ -2,7 +2,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:mrt/inputchecksheetedit.dart';
 import 'package:mrt/inputwo.dart';
-import 'package:mrt/widget/button_widget.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:mrt/NavDrawer.dart';
@@ -929,6 +928,7 @@ class _woeditState extends State<woedit> {
                       mode: Mode.BOTTOM_SHEET,
                       // showSelectedItem: true,
                       items: newDepartment,
+                      showSearchBox: true,
                       selectedItem: initializedepartment,
                       label: "Select Department Name",
                       // hint: "country in menu mode",
@@ -952,6 +952,7 @@ class _woeditState extends State<woedit> {
                       mode: Mode.BOTTOM_SHEET,
                       // showSelectedItem: true,
                       items: username,
+                      showSearchBox: true,
                       selectedItem: initializesectioni,
                       label: "Section Head on Duty",
                       // hint: "country in menu mode",
@@ -1097,6 +1098,7 @@ class _woeditState extends State<woedit> {
                               mode: Mode.BOTTOM_SHEET,
                               // showSelectedItem: true,
                               items: toolsname,
+                              showSearchBox: true,
                               label: "New Tools",
                               // hint: "country in menu mode",
                               onChanged: (value) {
@@ -1333,6 +1335,7 @@ class _woeditState extends State<woedit> {
                               // showSelectedItem: true,
                               items: materialname,
                               label: "Section Material",
+                              showSearchBox: true,
                               // hint: "country in menu mode",
                               onChanged: (value) {
                                 setState(() {
@@ -1633,6 +1636,7 @@ class _woeditState extends State<woedit> {
                               mode: Mode.BOTTOM_SHEET,
                               // showSelectedItem: true,
                               items: equipmentname,
+                              showSearchBox: true,
                               label: "Equipment",
                               selectedItem: equipmentisselect == true
                                   ? equipmentname[0]
@@ -1672,6 +1676,7 @@ class _woeditState extends State<woedit> {
                               // showSelectedItem: true,
                               items: subsystemname1,
                               label: "Sub System",
+                              showSearchBox: true,
                               selectedItem: equipmentisselect == true
                                   ? subsystemname1[0]
                                   : null,
@@ -1712,6 +1717,7 @@ class _woeditState extends State<woedit> {
                               // showSelectedItem: true,
                               items: systemname,
                               label: "System",
+                              showSearchBox: true,
                               selectedItem: equipmentisselect == true
                                   ? systemname[0]
                                   : null,
@@ -1753,6 +1759,7 @@ class _woeditState extends State<woedit> {
                               // showSelectedItem: true,
                               items: periodname,
                               label: "Period",
+                              showSearchBox: true,
                               // hint: "country in menu mode",
                               onChanged: (value) {
                                 setState(() {

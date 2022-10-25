@@ -359,6 +359,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  infinite_listview:
+    dependency: transitive
+    description:
+      name: infinite_listview
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
   intl:
     dependency: "direct main"
     description:
@@ -408,6 +415,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  numberpicker:
+    dependency: "direct main"
+    description:
+      name: numberpicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
   open_file:
     dependency: "direct main"
     description:
@@ -665,6 +679,34 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "19.4.56-beta"
+  syncfusion_flutter_pdfviewer:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_pdfviewer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "19.4.56-beta"
+  syncfusion_flutter_pdfviewer_macos:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_pdfviewer_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "19.4.56-beta"
+  syncfusion_flutter_pdfviewer_platform_interface:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_pdfviewer_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "19.4.56-beta"
+  syncfusion_flutter_pdfviewer_web:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_pdfviewer_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "19.4.56-beta"
   syncfusion_flutter_xlsio:
     dependency: "direct main"
     description:
@@ -728,6 +770,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.4"
+  uuid:
+    dependency: transitive
+    description:
+      name: uuid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.6"
   vector_math:
     dependency: transitive
     description:

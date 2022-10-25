@@ -56,3 +56,4 @@ String workorderdepartmenttemp = '';
 String workorderdepartmentidtemp = '';
 String workorderperiodtemp = '';
 String workorderstartdatetemp = '';
+String manualViews = '';

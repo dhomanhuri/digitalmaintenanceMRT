@@ -752,6 +752,7 @@ class _failureinputeditState extends State<failureinputedit> {
 
                             label: "Work Order Number",
                             // hint: "country in menu mode",
+                            showSearchBox: true,
                             onChanged: (value) {
                               setState(() {
                                 int selectedint =
@@ -772,7 +773,7 @@ class _failureinputeditState extends State<failureinputedit> {
                           keyboardType: TextInputType.text,
                           decoration: const InputDecoration(
                             hintText: 'Title',
-                            labelText: 'title',
+                            labelText: 'Title',
                           ),
                           validator: (value) {
                             if (value!.isEmpty)
@@ -789,6 +790,7 @@ class _failureinputeditState extends State<failureinputedit> {
                             // showSelectedItem: true,
                             items: locationname,
                             label: "Select Location",
+                            showSearchBox: true,
                             selectedItem: locationname[indexlocationtemp],
                             // hint: "country in menu mode",
                             onChanged: (value) {
@@ -811,6 +813,7 @@ class _failureinputeditState extends State<failureinputedit> {
                             mode: Mode.BOTTOM_SHEET,
                             // showSelectedItem: true,
                             items: areaname,
+                            showSearchBox: true,
                             label: "Select Area",
                             // hint: "country in menu mode",
                             onChanged: (value) {
@@ -829,45 +832,67 @@ class _failureinputeditState extends State<failureinputedit> {
                           ),
                         ),
                         Divider(),
+
                         Divider(),
-                        Container(
-                          margin: EdgeInsets.only(left: 5, bottom: 1, top: 1),
-                          // height: 30,
-                          width: MediaQuery.of(context).size.width -
-                              (MediaQuery.of(context).size.width / 10),
-                          // color: Colors.white,
-                          child: OutlinedButton(
-                              child: Text(
-                                initialdelay,
-                              ),
-                              onPressed: () {
-                                showTimePicker(
-                                  context: context,
-                                  initialTime: selectedTime,
-                                  initialEntryMode: TimePickerEntryMode.input,
-                                  confirmText: "CONFIRM",
-                                  cancelText: "NOT NOW",
-                                  helpText: "BOOKING TIME",
-                                ).then((value) {
-                                  if (value != null) {
-                                    setState(() {
-                                      delay = value
-                                          .toString()
-                                          .split('(')[1]
-                                          .split(')')[0];
-                                      initialdelay = delay;
-                                      print(delay);
-                                    });
-                                  }
-                                });
-                              }),
+                        TextFormField(
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(
+                            hintText: 'Delay (in Second)',
+                            labelText: 'Delay (in Second)',
+                          ),
+                          onChanged: (value) {
+                            setState(() {
+                              delay = value.toString();
+                            });
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty)
+                              return 'Delay tidak boleh kosong';
+                            delay = value.toString();
+                            return null;
+                          },
+                          // onSaved: (value) => title = value.toString()
                         ),
+                        // Divider(),
+                        // Container(
+                        //   margin: EdgeInsets.only(left: 5, bottom: 1, top: 1),
+                        //   // height: 30,
+                        //   width: MediaQuery.of(context).size.width -
+                        //       (MediaQuery.of(context).size.width / 10),
+                        //   // color: Colors.white,
+                        //   child: OutlinedButton(
+                        //       child: Text(
+                        //         initialdelay,
+                        //       ),
+                        //       onPressed: () {
+                        //         showTimePicker(
+                        //           context: context,
+                        //           initialTime: selectedTime,
+                        //           initialEntryMode: TimePickerEntryMode.input,
+                        //           confirmText: "CONFIRM",
+                        //           cancelText: "NOT NOW",
+                        //           helpText: "BOOKING TIME",
+                        //         ).then((value) {
+                        //           if (value != null) {
+                        //             setState(() {
+                        //               delay = value
+                        //                   .toString()
+                        //                   .split('(')[1]
+                        //                   .split(')')[0];
+                        //               initialdelay = delay;
+                        //               print(delay);
+                        //             });
+                        //           }
+                        //         });
+                        //       }),
+                        // ),
                         Divider(),
                         Center(
                           child: DropdownSearch<String>(
                             mode: Mode.BOTTOM_SHEET,
                             // showSelectedItem: true,
                             items: departmentname,
+                            showSearchBox: true,
                             selectedItem: departmentname[indexdepartmenttemp],
                             label: "Select report by",
                             // hint: "country in menu mode",
@@ -891,6 +916,7 @@ class _failureinputeditState extends State<failureinputedit> {
                             mode: Mode.BOTTOM_SHEET,
                             // showSelectedItem: true,
                             items: departmentname,
+                            showSearchBox: true,
                             selectedItem:
                                 departmentname[indexreceivedepartmenttemp],
                             label: "Select Received by",
@@ -1012,6 +1038,7 @@ class _failureinputeditState extends State<failureinputedit> {
                             items: systemname,
                             label: "Select System",
                             // hint: "country in menu mode",
+                            showSearchBox: true,
                             selectedItem: systemname[indexsystemtemp],
                             onChanged: (value) {
                               setState(() {
@@ -1039,6 +1066,7 @@ class _failureinputeditState extends State<failureinputedit> {
                             // showSelectedItem: true,
                             items: subsystemname1,
                             label: "Select Sub System",
+                            showSearchBox: true,
                             selectedItem: subsystemname1[indexsystem_subtemp],
                             // hint: "country in menu mode",
                             onChanged: (value) {
@@ -1061,6 +1089,7 @@ class _failureinputeditState extends State<failureinputedit> {
                             mode: Mode.BOTTOM_SHEET,
                             // showSelectedItem: true,
                             items: equipmentname,
+                            showSearchBox: true,
                             label: "Select Equipment",
                             selectedItem: equipmentname[indexequipmenttemp],
                             // hint: "country in menu mode",
@@ -1084,6 +1113,7 @@ class _failureinputeditState extends State<failureinputedit> {
                             mode: Mode.BOTTOM_SHEET,
                             // showSelectedItem: true,
                             items: equipmentidname,
+                            showSearchBox: true,
                             label: "Select Equipment ID",
                             // hint: "country in menu mode",
                             selectedItem: equipmentidname[indexequipmentidtemp],
@@ -1109,6 +1139,7 @@ class _failureinputeditState extends State<failureinputedit> {
                             items: trainsetname,
                             label: "Select Trainset",
                             // hint: "country in menu mode",
+                            showSearchBox: true,
                             selectedItem: trainsetname[indextrainsettemp],
                             onChanged: (value) {
                               setState(() {
@@ -1269,6 +1300,7 @@ class _failureinputeditState extends State<failureinputedit> {
                               // showSelectedItem: true,
                               items: materialname,
                               label: "Material",
+                              showSearchBox: true,
                               // hint: "country in menu mode",
                               onChanged: (value) {
                                 setState(() {
@@ -1341,6 +1373,7 @@ class _failureinputeditState extends State<failureinputedit> {
                               // showSelectedItem: true,
                               items: unitname,
                               label: "Unit",
+                              showSearchBox: true,
                               // hint: "country in menu mode",
                               onChanged: (value) {
                                 setState(() {
@@ -1374,6 +1407,7 @@ class _failureinputeditState extends State<failureinputedit> {
                               mode: Mode.BOTTOM_SHEET,
                               // showSelectedItem: true,
                               items: newdata,
+                              showSearchBox: true,
                               label: "Work Order Number",
                               // hint: "country in menu mode",
                               onChanged: (value) {
@@ -1444,10 +1478,6 @@ class _failureinputeditState extends State<failureinputedit> {
                                   context: context,
                                   builder: (BuildContext context) =>
                                       new AlertDialog(
-                                    // title: const Text(
-                                    //   'Popup example',
-                                    //   textAlign: TextAlign.center,
-                                    // ),
                                     content: new Column(
                                       mainAxisSize: MainAxisSize.min,
                                       crossAxisAlignment:

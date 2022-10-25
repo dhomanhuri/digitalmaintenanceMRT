@@ -147,12 +147,9 @@ class _executewoState extends State<executewo> {
     newDepartment = [];
     newDepartmentid = [];
     _department(wonumber2);
-    // _userGet();
     _materialtabel();
     _tools();
     _material();
-    // _system();
-    // _subsystem1();
     _equipmentid();
     _funcequipmentid('nothing');
     _period();
@@ -401,15 +398,12 @@ class _executewoState extends State<executewo> {
           'Accept': 'application/json',
           'Authorization': 'Bearer ' + _tokenJwt
         });
-    // print(resp.body);
-    // print('masuksubsystemwqewqewq');
     _getsubsystem1 = [...jsonDecode(resp.body)];
     print(jsonDecode(resp.body));
     setState(() {
       for (var i = 0; i < _getsubsystem1.length; i++) {
         subsystemname1.add(_getsubsystem1[i]['name'].toString());
         subsystemid1.add(_getsubsystem1[i]['id'].toString());
-        // print(newdata);
       }
     });
   }
@@ -449,10 +443,6 @@ class _executewoState extends State<executewo> {
           equipmentidname.add(_getequipmentid[i]['name'].toString());
           equipmentidid.add(_getequipmentid[i]['id'].toString());
         } else {
-          // print('cari = ' +
-          //     a.toString() +
-          //     'yang dicari = ' +
-          //     _getequipmentid[i]['name'].toString());
           if (_getequipmentid[i]['name'].toString() == a.toString()) {
             equipmentidname.add(_getequipmentid[i]['name'].toString());
             equipmentidid.add(_getequipmentid[i]['id'].toString());
@@ -537,17 +527,6 @@ class _executewoState extends State<executewo> {
           endtime2 = _getwonumber[i]['end_time'].toString();
           initialStartdate = _getwonumber[i]['start_time'].toString();
           initialEnddate = _getwonumber[i]['end_time'].toString();
-          // selected = _getwonumber[i]['system'];
-          // selectedint = _getwonumber[i]['system_sub'];
-          // print('wo_number = ' + _getwonumber[i]['workorder_no'].toString());
-          // print('department = ' + _getwonumber[i]['department'].toString());
-          // print(
-          //     'section_onduty = ' + _getwonumber[i]['section_head'].toString());
-          // print('technician = ' + _getwonumber[i]['technician'].toString());
-          // print('start_time = ' + _getwonumber[i]['start_time'].toString());
-          // print('end_time = ' + _getwonumber[i]['end_time'].toString());
-          // print('system = ' + _getwonumber[i]['system']);
-          // print('system_sub = ' + _getwonumber[i]['system_sub'].toString());
           break;
         }
       }
@@ -570,17 +549,12 @@ class _executewoState extends State<executewo> {
       for (var i = 0; i < _getwonumber.length; i++) {
         newdata.add(_getwonumber[i]['workorder_no'].toString());
         newdataid.add(_getwonumber[i]['id'].toString());
-        // print(newdata);
         int selectordepartment = 0;
         if (globals.workorder_notemp.toString() ==
                 _getwonumber[i]['id'].toString() &&
             selectordepartment == 0) {
           initializeworkorder = _getwonumber[i]['workorder_no'].toString();
           print('ketemu = ' + initializeworkorder);
-          // newDepartment = [];
-          // newDepartmentid = [];
-          // print(initializeworkorder);
-          // _department(initializeworkorder);
           selectordepartment = 1;
         }
       }
@@ -649,10 +623,6 @@ class _executewoState extends State<executewo> {
       for (var i = 0; i < _getdepartment.length; i++) {
         newDepartment.add(_getdepartment[i]['name'].toString());
         newDepartmentid.add(_getdepartment[i]['id'].toString());
-        // print('cari department = ' +
-        //     _getdepartment[i]['id'].toString() +
-        //     ' || data now = ' +
-        //     deparmtent2);
         int selectordepartment = 0;
         if (deparmtent2.toString() == _getdepartment[i]['id'].toString() &&
             selectordepartment == 0) {
@@ -742,7 +712,6 @@ class _executewoState extends State<executewo> {
     print('object' + jsonDecode(resp.body).toString());
     setState(() {
       for (var i = 0; i < _getmaterialtabel.length; i++) {
-        // toolsnametabel.add(_gettoolstabel[i]['materialname'].toString());
         materialnametabel.add(_getmaterialtabel[i]['materialname'].toString());
       }
     });
@@ -1128,10 +1097,6 @@ class _executewoState extends State<executewo> {
                                         context: context,
                                         builder: (BuildContext context) =>
                                             new AlertDialog(
-                                              // title: const Text(
-                                              //   'Popup example',
-                                              //   textAlign: TextAlign.center,
-                                              // ),
                                               content: new Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 crossAxisAlignment:

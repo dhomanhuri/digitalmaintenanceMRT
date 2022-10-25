@@ -9,6 +9,7 @@ import 'dart:async';
 import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'globals.dart' as globals;
 import 'package:file_picker/file_picker.dart';
+import 'package:numberpicker/numberpicker.dart';
 
 class failureAdd extends StatefulWidget {
   static const String routeName = '/failureAdd';
@@ -84,6 +85,7 @@ class _failureAddState extends State<failureAdd> {
   String initialfailuretime = 'Select Time Failure';
   String initialdelay = 'Select Delay';
   TimeOfDay selectedTime = TimeOfDay.now();
+  int _currentValue = 3;
   _selectTime(BuildContext context) async {
     TimeOfDay? timeOfDay = await showTimePicker(
       context: context,
@@ -502,6 +504,7 @@ class _failureAddState extends State<failureAdd> {
                           child: DropdownSearch<String>(
                             mode: Mode.BOTTOM_SHEET,
                             // showSelectedItem: true,
+                            showSearchBox: true,
                             items: newdata,
                             label: "Work Order Number",
                             // hint: "country in menu mode",
@@ -545,6 +548,7 @@ class _failureAddState extends State<failureAdd> {
                             items: locationname,
                             label: "Select Location",
                             // hint: "country in menu mode",
+                            showSearchBox: true,
                             onChanged: (value) {
                               setState(() {
                                 int selectedint = locationname
@@ -583,38 +587,57 @@ class _failureAddState extends State<failureAdd> {
                         ),
                         Divider(),
                         Divider(),
-                        Container(
-                          margin: EdgeInsets.only(left: 5, bottom: 1, top: 1),
-                          // height: 30,
-                          width: MediaQuery.of(context).size.width -
-                              (MediaQuery.of(context).size.width / 10),
-                          // color: Colors.white,
-                          child: OutlinedButton(
-                              child: Text(
-                                initialdelay,
-                              ),
-                              onPressed: () {
-                                showTimePicker(
-                                  context: context,
-                                  initialTime: selectedTime,
-                                  initialEntryMode: TimePickerEntryMode.input,
-                                  confirmText: "CONFIRM",
-                                  cancelText: "NOT NOW",
-                                  helpText: "BOOKING TIME",
-                                ).then((value) {
-                                  if (value != null) {
-                                    setState(() {
-                                      delay = value
-                                          .toString()
-                                          .split('(')[1]
-                                          .split(')')[0];
-                                      initialdelay = delay;
-                                      print(delay);
-                                    });
-                                  }
-                                });
-                              }),
+                        TextFormField(
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(
+                            hintText: 'Delay (in Second)',
+                            labelText: 'Delay (in Second)',
+                          ),
+                          onChanged: (value) {
+                            setState(() {
+                              delay = value.toString();
+                            });
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty)
+                              return 'Email tidak boleh kosong';
+                            delay = value.toString();
+                            return null;
+                          },
+                          // onSaved: (value) => title = value.toString()
                         ),
+                        // Container(
+                        //   margin: EdgeInsets.only(left: 5, bottom: 1, top: 1),
+                        //   // height: 30,
+                        //   width: MediaQuery.of(context).size.width -
+                        //       (MediaQuery.of(context).size.width / 10),
+                        //   // color: Colors.white,
+                        //   child: OutlinedButton(
+                        //       child: Text(
+                        //         initialdelay,
+                        //       ),
+                        //       onPressed: () {
+                        //         showTimePicker(
+                        //           context: context,
+                        //           initialTime: selectedTime,
+                        //           initialEntryMode: TimePickerEntryMode.input,
+                        //           confirmText: "CONFIRM",
+                        //           cancelText: "NOT NOW",
+                        //           helpText: "BOOKING TIME",
+                        //         ).then((value) {
+                        //           if (value != null) {
+                        //             setState(() {
+                        //               delay = value
+                        //                   .toString()
+                        //                   .split('(')[1]
+                        //                   .split(')')[0];
+                        //               initialdelay = delay;
+                        //               print(delay);
+                        //             });
+                        //           }
+                        //         });
+                        //       }),
+                        // ),
                         Divider(),
                         Center(
                           child: DropdownSearch<String>(
@@ -622,6 +645,7 @@ class _failureAddState extends State<failureAdd> {
                             // showSelectedItem: true,
                             items: departmentnamereport,
                             label: "Select report by",
+                            showSearchBox: true,
                             // hint: "country in menu mode",
                             onChanged: (value) {
                               setState(() {
@@ -645,6 +669,7 @@ class _failureAddState extends State<failureAdd> {
                             // showSelectedItem: true,
                             items: departmentname,
                             label: "Select Received by",
+                            showSearchBox: true,
                             // hint: "country in menu mode",
                             onChanged: (value) {
                               setState(() {
@@ -762,6 +787,7 @@ class _failureAddState extends State<failureAdd> {
                             // showSelectedItem: true,
                             items: systemname,
                             label: "Select System",
+                            showSearchBox: true,
                             // hint: "country in menu mode",
                             onChanged: (value) {
                               setState(() {
@@ -791,6 +817,7 @@ class _failureAddState extends State<failureAdd> {
                             mode: Mode.BOTTOM_SHEET,
                             // showSelectedItem: true,
                             items: subsystemname1,
+                            showSearchBox: true,
                             label: "Select Sub System",
                             // hint: "country in menu mode",
                             onChanged: (value) {
@@ -817,6 +844,7 @@ class _failureAddState extends State<failureAdd> {
                             // showSelectedItem: true,
                             items: equipmentname,
                             label: "Select Equipment",
+                            showSearchBox: true,
                             // hint: "country in menu mode",
                             onChanged: (value) {
                               setState(() {
@@ -841,6 +869,7 @@ class _failureAddState extends State<failureAdd> {
                             mode: Mode.BOTTOM_SHEET,
                             // showSelectedItem: true,
                             items: equipmentidname,
+                            showSearchBox: true,
                             label: "Select Equipment ID",
                             // hint: "country in menu mode",
                             onChanged: (value) {
@@ -863,6 +892,7 @@ class _failureAddState extends State<failureAdd> {
                             mode: Mode.BOTTOM_SHEET,
                             // showSelectedItem: true,
                             items: trainsetname,
+                            showSearchBox: true,
                             label: "Select Trainset",
                             // hint: "country in menu mode",
                             onChanged: (value) {

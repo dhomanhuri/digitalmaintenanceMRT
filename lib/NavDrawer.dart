@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mrt/failureexecute.dart';
+import 'package:mrt/pdftes.dart';
 import 'package:mrt/testsearch.dart';
 import 'package:mrt/unit.dart';
 import 'package:mrt/preventive.dart';
@@ -220,6 +221,18 @@ class NavDrawer extends StatelessWidget {
                           MaterialPageRoute(builder: (context) => manualacc()));
                     },
                   ),
+                  // ListTile(
+                  //   leading: Icon(Icons.print),
+                  //   title: Text(
+                  //     'tes',
+                  //     style: TextStyle(
+                  //         fontSize: 18.0, fontWeight: FontWeight.bold),
+                  //   ),
+                  //   onTap: () {
+                  //     Navigator.of(context).push(
+                  //         MaterialPageRoute(builder: (context) => pdftes()));
+                  //   },
+                  // ),
                   ListTile(
                     leading: Icon(Icons.add),
                     title: Text(

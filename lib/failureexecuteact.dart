@@ -749,6 +749,7 @@ class _failureexecuteactState extends State<failureexecuteact> {
                             selectedItem: newdata[indexworkordertemp],
 
                             label: "Work Order Number",
+                            showSearchBox: true,
                             // hint: "country in menu mode",
                             onChanged: (value) {
                               setState(() {
@@ -828,38 +829,57 @@ class _failureexecuteactState extends State<failureexecuteact> {
                         ),
                         Divider(),
                         Divider(),
-                        Container(
-                          margin: EdgeInsets.only(left: 5, bottom: 1, top: 1),
-                          // height: 30,
-                          width: MediaQuery.of(context).size.width -
-                              (MediaQuery.of(context).size.width / 10),
-                          // color: Colors.white,
-                          child: OutlinedButton(
-                              child: Text(
-                                initialdelay,
-                              ),
-                              onPressed: () {
-                                showTimePicker(
-                                  context: context,
-                                  initialTime: selectedTime,
-                                  initialEntryMode: TimePickerEntryMode.input,
-                                  confirmText: "CONFIRM",
-                                  cancelText: "NOT NOW",
-                                  helpText: "BOOKING TIME",
-                                ).then((value) {
-                                  if (value != null) {
-                                    setState(() {
-                                      delay = value
-                                          .toString()
-                                          .split('(')[1]
-                                          .split(')')[0];
-                                      initialdelay = delay;
-                                      print(delay);
-                                    });
-                                  }
-                                });
-                              }),
+                        TextFormField(
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(
+                            hintText: 'Delay (in Second)',
+                            labelText: 'Delay (in Second)',
+                          ),
+                          onChanged: (value) {
+                            setState(() {
+                              delay = value.toString();
+                            });
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty)
+                              return 'Email tidak boleh kosong';
+                            delay = value.toString();
+                            return null;
+                          },
+                          // onSaved: (value) => title = value.toString()
                         ),
+                        // Container(
+                        //   margin: EdgeInsets.only(left: 5, bottom: 1, top: 1),
+                        //   // height: 30,
+                        //   width: MediaQuery.of(context).size.width -
+                        //       (MediaQuery.of(context).size.width / 10),
+                        //   // color: Colors.white,
+                        //   child: OutlinedButton(
+                        //       child: Text(
+                        //         initialdelay,
+                        //       ),
+                        //       onPressed: () {
+                        //         showTimePicker(
+                        //           context: context,
+                        //           initialTime: selectedTime,
+                        //           initialEntryMode: TimePickerEntryMode.input,
+                        //           confirmText: "CONFIRM",
+                        //           cancelText: "NOT NOW",
+                        //           helpText: "BOOKING TIME",
+                        //         ).then((value) {
+                        //           if (value != null) {
+                        //             setState(() {
+                        //               delay = value
+                        //                   .toString()
+                        //                   .split('(')[1]
+                        //                   .split(')')[0];
+                        //               initialdelay = delay;
+                        //               print(delay);
+                        //             });
+                        //           }
+                        //         });
+                        //       }),
+                        // ),
                         Divider(),
                         Center(
                           child: DropdownSearch<String>(
